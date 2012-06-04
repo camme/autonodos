@@ -1,0 +1,4 @@
+@import 'bootstrap.min.css';
+body{margin:40px 0}
+.value{padding-left:20px;font-weight:bold;text-transform:uppercase}
+#lamp{cursor:pointer}
