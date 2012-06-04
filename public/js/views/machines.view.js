@@ -7,9 +7,30 @@
 
         // listen to the update event
         nunt.on("appliance.update", updatePower);
+        nunt.on("appliances.list", renderApplianceList);
 
         // when we are connected to the server, we call the ask function
-        nunt.on(nunt.CONNECTED, askForValue);
+        nunt.on(nunt.CONNECTED, getListOfMachines);
+
+        function getListOfMachines(e) {
+            nunt.send("get.appliances.list", {});
+        }
+
+        function renderApplianceList(e) {
+
+            var container = $(".machines").empty();
+            var itemTemplate = $(".templates .appliance").outerHtml();
+
+            for(var i = 0, ii = e.list.length; i < ii; i++) {
+                var appliance = e.list[i];
+                var item = $(itemTemplate);
+                item.find(".name").html(appliance.name);
+                item.attr("id", appliance.guid);
+                container.append(item);
+            }
+            console.log(e.list);
+        }
+           
 
         // callback for when we get the current power setting
         function updatePower(e) {

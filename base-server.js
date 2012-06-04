@@ -4,7 +4,7 @@ var config = {
         port: 9999,
         url: "http://localhost"
     },
-    url: "http://localhost.com:999"
+    url: "http://localhost.com:9999"
 }
 
 // the event framework
@@ -32,7 +32,8 @@ app.configure(function(){
 // init nunt, we do this before nayhthing else so that the twitter modules is loaded
 nunt.init({
     server: app,
-    fakeSocket: true
+    fakeSocket: true,
+    load: [__dirname + "/logic"]
 });
 
 // start the server
