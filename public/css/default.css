@@ -1,5 +1,10 @@
 @import 'bootstrap.min.css';
-body{margin:40px 0}
+body{margin:20px 0}
 .value{padding-left:20px;font-weight:bold;text-transform:uppercase}
 #lamp{cursor:pointer}
 .templates{display:none}
+.machines{list-style:none;margin-top:20px;margin-left:0;}
+.machines .appliance{background-color:#eee;border-radius:5px;padding:10px 14px;margin-bottom:10px;}
+.machines .appliance.on{background-color:#b2f274}
+.machines .appliance.off{background-color:#f2b274}
+.machines .appliance .value{float:right;display:block;width:30px;text-align:right}

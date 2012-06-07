@@ -33,6 +33,7 @@ app.configure(function(){
 nunt.init({
     server: app,
     fakeSocket: true,
+    silent: true,
     load: [__dirname + "/logic"]
 });
 

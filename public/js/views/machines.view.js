@@ -7,6 +7,7 @@
 
         // listen to the update event
         nunt.on("appliance.update", updatePower);
+        nunt.on("appliance.info", updatePower);
         nunt.on("appliances.list", renderApplianceList);
 
         // when we are connected to the server, we call the ask function
@@ -27,15 +28,35 @@
                 item.find(".name").html(appliance.name);
                 item.attr("id", appliance.guid);
                 container.append(item);
-            }
+                item.click(function() {
+                    var guid = $(this).attr("id");
+                    var relayStatus = $(this).attr("data-relay") == "true";
+                    nunt.send("appliance.switch", {power: !relayStatus, guid: guid});
+                });
+             }
             console.log(e.list);
+
         }
-           
 
         // callback for when we get the current power setting
         function updatePower(e) {
-            power = e.power;
-            $("#lamp .value").html(e.power ? "on" : "off");
+            var power = e.relay;
+            console.log("update " + e.guid + " set to " + power);
+            var appliance = $("#" + e.guid);
+
+            appliance.find(".value").html(power ? "on" : "off");
+            appliance.attr("data-relay", power);
+
+            appliance.removeClass("on").removeClass("off");
+
+            if (power) {
+                appliance.addClass("on");
+            }
+            else {
+                appliance.addClass("off");
+            }
+
+
         }
 
         // send an event to ask for the current value
@@ -45,10 +66,7 @@
 
         // just make sure that we can click
         $(function() {
-            $("#lamp").click(function() {
-                nunt.send("appliance.switch", {power: !power});
-            });
-        });
+       });
 
     }
 
