@@ -10,9 +10,9 @@
         <script src="/nunt/nunt.client.js" type="text/javascript"></script>
         <script src="/js/lib/jquery-1.7.1.min.js" type="text/javascript"></script>
         <script src="/js/lib/jquery.outerhtml.js" type="text/javascript"></script>
-        <script src="/js/lib/bootstrap.min.js" type="text/javascript"></script>
+        <script src="/js/lib/raphael-min.js" type="text/javascript"></script>
         <link rel="stylesheet" href="/css/default.css" title="bootstrap" type="text/css" />
-
+        <link media="only screen and (max-device-width: 480px)" href="/css/iphone.css" type="text/css" rel="stylesheet" />
         <script src="/js/views/machines.view.js" type="text/javascript"></script>
 
     </head>
@@ -34,7 +34,13 @@
 
         <div class="templates">
             <ul class="machinesTemplates">
-                <li class="appliance"><span class="name">Lamp power status</span><span class="value"></span></li>
+                <li class="appliance">
+                    <span class="name">Lamp power status</span><span class="value"></span>
+                    <div class="applianceDetails">
+                        <div class="power"></div>
+                        <div class="canvas"></div>
+                    </div>
+                </li>
             </ul>
         </div>
 

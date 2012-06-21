@@ -1,10 +1,14 @@
-@import 'bootstrap.min.css';
-body{margin:20px 0}
+body{margin:10px 20px;font-family:arial,helvetica;font-size:13px}
+.row{float:left;clear:left}
 .value{padding-left:20px;font-weight:bold;text-transform:uppercase}
 #lamp{cursor:pointer}
 .templates{display:none}
-.machines{list-style:none;margin-top:20px;margin-left:0;}
-.machines .appliance{background-color:#eee;border-radius:5px;padding:10px 14px;margin-bottom:10px;}
+.machines{padding-left:0;list-style:none;margin-top:20px;margin-left:0;}
+.machines .appliance{width:350px;float:left;background-color:#eee;padding:10px 14px;margin-bottom:10px;margin-right:10px;}
+.machines .appliance .applianceDetails{padding:10px 0}
+.machines .appliance .icon-info-sign{padding-right:5px;margin-top:1px;cursor:pointer}
 .machines .appliance.on{background-color:#b2f274}
 .machines .appliance.off{background-color:#f2b274}
-.machines .appliance .value{float:right;display:block;width:30px;text-align:right}
+.machines .appliance .value{float:right;cursor:pointer;display:block;width:30px;text-align:center;border-radius:4px;color:#fff;margin-top:-2px;display:none;background-color:#808080;padding:3px 5px}
+.machines .appliance .power{font-weight:bold}
+.machines .appliance .canvas{background-color:#fff;margin-top:5px;border-radius:5px;width:342px;height:150px}
